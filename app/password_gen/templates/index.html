@@ -1,0 +1,44 @@
+<!-- templates/index.html -->
+
+{% extends "_base.html" %} {%block title%} Home {%endblock%} {% block content %}
+<div>
+  <h1 class="text-3xl text-center text-green-800">Generate Your Password</h1>
+  <form action="{% url 'random_pass' %}">
+    
+    <div class="p-5 shadow-m my-5 bg-dark rounded-4 d-flex justify-content-center align-items-center gap-4"> 
+      <select name='length'>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+        <option value="14">14</option>
+        <option value="16">16</option>
+        <option value="18">18</option>
+        <option value="20">20</option>
+        <option value="22">22</option>
+        <option value="24">24</option>
+        <option value="26">26</option>
+        <option value="28">28</option>
+        <option value="30">30</option>
+      </select>
+      <div>
+        <input type="checkbox"  name="uppercase" >
+        Upercase
+      </div>
+      
+      <div>
+        <input type="checkbox"  name="digits" >
+        Digits
+      </div>
+      <div>
+        <input type="checkbox"  name="symbols" >
+        Symbols
+      </div>
+      
+      <input type='submit' name="pass_gen" value="SUBMIT" class="btn btn-sm btn-info" />
+    </div>
+
+  </form>
+  {% comment %} <a href="/password" class="btn btn-sm btn-success">GENERATE</a> {% endcomment %}
+</div>
+{% endblock content %}
