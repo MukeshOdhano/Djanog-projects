@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+{% block title%} HOME {% endblock %} 
+{% block content%}
+
+<h1 class="my-4 text-center">WEATHER WEB</h1>
+<div class="m-5 p-4 container bg-dark text-center">
+  <form method='post'>
+    {% csrf_token %}
+    <div class="input-group mb-3">
+      <span class="input-group-text " id="basic-addon1">City</span>
+      <input type="text" class="form-control" name="city" placeholder="City" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+    <input type="submit" class="btn btn-sm btn-primary" value='SUBMIT' />
+  </form>
+</div>
+<div class="m-5 row">
+  {% if country_code and coordinate and temp and humidity%}
+  <div class=" col-md-6 col-md-offset-3">
+    <h2>Country Code: {{country_code}}</h2>
+    <h4>Coordinate: {{coordinate}}</h4>
+    <h4>Temp: {{temp}} </h4>
+    <h4>Humidity: {{humidity}}</h4>
+  </div>
+  {% endif %}
+</div>
+{% endblock content%}
